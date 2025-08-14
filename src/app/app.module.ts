@@ -11,6 +11,8 @@ import { PageNotFoudComponent } from './page-not-foud/page-not-foud.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesDetailComponent } from './courses-detail/courses-detail.component';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
+import { ContacDetailsComponent } from './contac-details/contac-details.component';
 
 // Principal
 // Contact
@@ -29,9 +31,21 @@ const routes: Routes = [
     path: 'courses/:course', 
     component: CoursesDetailComponent
   },
+
+  // contact/ nombreHija
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    children: [
+      {
+        path: '',
+        component: ContactInfoComponent
+      },
+      {
+        path: 'details',
+        component: ContacDetailsComponent
+      }
+    ]
   },
   {
     path: 'about',
